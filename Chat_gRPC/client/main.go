@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
-	pb "example/gRPC_4Stream"
+	pb "example/gRPC-Chat/Chat_gRPC"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"bufio"

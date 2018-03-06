@@ -2,13 +2,13 @@
 package main
 import (
 	"fmt"
-	bs "example/gRPC_4Stream/thrift/gen-go/generic"
-	sessionbs "example/gRPC_4Stream/thrift/gen-go/session"
+	bs "example/gRPC-Chat/Chat_gRPC/thrift/gen-go/generic"
+	sessionbs "example/gRPC-Chat/Chat_gRPC/thrift/gen-go/session"
 	"time"
 
-	"example/gRPC_4Stream/thriftpool"
+	"example/gRPC-Chat/Chat_gRPC/thriftpool"
 	"git.apache.org/thrift.git/lib/go/thrift"
-	idbs "example/gRPC_4Stream/thrift/gen-go/idgenerate"
+	idbs "example/gRPC-Chat/Chat_gRPC/thrift/gen-go/idgenerate"
 )
 
 
