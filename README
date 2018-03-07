@@ -1,2 +1,11 @@
-hello world
-Hello World
+Step1: 
+	mkdir /data
+	sudo chmod 777 /data/
+Step2:  change 'CreateGenerator' add "1" into lastchain
+Step3:
+	go to  dir run-database: run ./bsg.. nozk; run ./sim..server nozk
+	go to dir server: run main.go, pooldb.go
+Step4:
+	go to dir client: run main.go, menu.go
+
+====>> test further

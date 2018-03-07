@@ -46,8 +46,8 @@ func (s *UserService) Register(ctx context.Context, in *pb.User) (*pb.Response, 
 	//idclient: bigset id
 	idclient,_ := mpid.Get("127.0.0.1", "18405").Get()
 	defer idclient.BackToPool()
-	idclient.Client.(*idbs.TGeneratorClient).CreateGenerator("GenIdUser7")
-	id := getvalue("GenIdUser7")
+	idclient.Client.(*idbs.TGeneratorClient).CreateGenerator("GenIdUser9")
+	id := getvalue("GenIdUser9")
 	key_name := strconv.Itoa(int(id))
 
 	pass := Hash(in.GetPassword())
@@ -81,7 +81,6 @@ func (s *UserService) Register(ctx context.Context, in *pb.User) (*pb.Response, 
 //login
 func (s *UserService) Login(ctx context.Context, in *pb.UserLogin) (*pb.Response, error) {
 
-	fmt.Println("abc")
 	client, _ := mp.Get("127.0.0.1", "18407").Get()
 	defer client.BackToPool()
 	//get username, password
@@ -89,49 +88,49 @@ func (s *UserService) Login(ctx context.Context, in *pb.UserLogin) (*pb.Response
 	password := Hash(in.GetPassword())
 	//lay ra Uid tu username
 	id ,_ := client.Client.(*bs.TStringBigSetKVServiceClient).BsGetItem("UserName_Id", []byte(username))
-	key_id := string(id.Item.Value[:])
+	checkid,_ := client.Client.(*bs.TStringBigSetKVServiceClient).BsExisted("UserName_Id", []byte(username))
+	if checkid.GetExisted() {
 
-	name, _ := client.Client.(*bs.TStringBigSetKVServiceClient).BsGetItem("UserName", []byte(key_id))
-	checkname, _ := client.Client.(*bs.TStringBigSetKVServiceClient).BsExisted("UserName", []byte(key_id))
+		key_id := string(id.Item.Value[:])
+		name, _ := client.Client.(*bs.TStringBigSetKVServiceClient).BsGetItem("UserName", []byte(key_id))
+		checkname, _ := client.Client.(*bs.TStringBigSetKVServiceClient).BsExisted("UserName", []byte(key_id))
+		if checkname.GetExisted() {
+			//take id:
+			pass, _ := client.Client.(*bs.TStringBigSetKVServiceClient).BsGetItem("Password", []byte(key_id))
+			checkpass, _ := client.Client.(*bs.TStringBigSetKVServiceClient).BsExisted("Password", []byte(key_id))
 
-	if checkname.GetExisted(){
-		//take id:
-		pass, _ := client.Client.(*bs.TStringBigSetKVServiceClient).BsGetItem("Password", []byte(key_id))
-		checkpass, _ := client.Client.(*bs.TStringBigSetKVServiceClient).BsExisted("Password", []byte(key_id))
+			if checkpass.Existed {
+				if (string(pass.Item.Value[:]) == password && username == string(name.Item.Value[:])) {
+					c := &Client{
+						uid:  key_id,
+						name: username,
+						ch:   make(chan pb.Message, 100),
+					}
+					//tao sessionkey
+					ssclient, _ := mpcreatekey.Get("127.0.0.1", "19175").Get()
+					defer ssclient.BackToPool()
+					//session,err := client.Client.(*sessionbs.TSimpleSessionService_WClient).CreateSession(&c)
+					//chuyen keyid into uid type i64
+					uid, _ := strconv.ParseUint(key_id, 10, 64)
 
-		if checkpass.Existed{
-			if (string(pass.Item.Value[:]) == password && username == string(name.Item.Value[:]) ){
-				c := &Client{
-					uid: key_id,
-					name:      username,
-					ch:        make(chan pb.Message, 100),
+					user := sessionbs.TUserSessionInfo{
+						Code:        1,
+						ExpiredTime: 1,
+						Permissions: "1",
+						Version:     1,
+						UID:         sessionbs.TUID(uid),
+						Data:        password,
+						DeviceInfo:  username,
+					}
+					session, _ := ssclient.Client.(*sessionbs.TSimpleSessionService_WClient).CreateSession(&user)
+					var keysession sessionbs.TSessionKey
+					keysession = session.GetSession()
+					//key la uid o dang string
+					clients[key_id] = c
+					return &pb.Response{Response: string(keysession), Check: true}, nil
 				}
-				//tao sessionkey
-				ssclient, _ := mpcreatekey.Get("127.0.0.1", "19175").Get()
-				defer ssclient.BackToPool()
-				//session,err := client.Client.(*sessionbs.TSimpleSessionService_WClient).CreateSession(&c)
-				//chuyen keyid into uid type i64
-				uid,_ := strconv.ParseUint(key_id,10,64)
-
-				user := sessionbs.TUserSessionInfo{
-					Code:1,
-					ExpiredTime:1,
-					Permissions:"1",
-					Version:1,
-					UID:sessionbs.TUID(uid),
-					Data:password,
-					DeviceInfo:username,
-				}
-				session,_ := ssclient.Client.(*sessionbs.TSimpleSessionService_WClient).CreateSession(&user)
-				var  keysession sessionbs.TSessionKey
-				keysession = session.GetSession()
-				//key la uid o dang string
-				clients[key_id] = c
-				return  &pb.Response{Response: string(keysession), Check:true},nil
 			}
-			fmt.Println("in")
 		}
-
 	}
 	return &pb.Response{Response:"Don't Success", Check: false},nil
 }
@@ -262,13 +261,13 @@ func (s *UserService) CreateConversation(ctx context.Context, in *pb.Request) (*
 
 		if get_cid == "" {
 			//gen id Conversation
-			idclient.Client.(*idbs.TGeneratorClient).CreateGenerator("GenIdConversation7")
-			cid := getvalue("GenIdConversation7")
+			idclient.Client.(*idbs.TGeneratorClient).CreateGenerator("GenIdConversation9")
+			cid := getvalue("GenIdConversation9")
 
 			//gen id conversationdetail
 			//add uid, cid vao conversation lan 1
-			idclient.Client.(*idbs.TGeneratorClient).CreateGenerator("GenIdConversationDetail7")
-			cdid := getvalue("GenIdConversationDetail7")
+			idclient.Client.(*idbs.TGeneratorClient).CreateGenerator("GenIdConversationDetail9")
+			cdid := getvalue("GenIdConversationDetail9")
 
 			client.Client.(*bs.TStringBigSetKVServiceClient).BsPutItem("IdConversation", &bs.TItem{[]byte(strconv.Itoa(int(cdid))), []byte(strconv.Itoa(int(cid)))})
 			client.Client.(*bs.TStringBigSetKVServiceClient).BsPutItem("IdMember", &bs.TItem{[]byte(strconv.Itoa(int(cdid))), []byte(strconv.Itoa(int(fromid)))})
@@ -455,8 +454,8 @@ func saveMessage(mess pb.Message){
 //sinh mid
 	idclient,_ := mpid.Get("127.0.0.1", "18405").Get()
 	defer idclient.BackToPool()
-	idclient.Client.(*idbs.TGeneratorClient).CreateGenerator("GenIdMessage7")
-	id := getvalue("GenIdMessage7")
+	idclient.Client.(*idbs.TGeneratorClient).CreateGenerator("GenIdMessage9")
+	id := getvalue("GenIdMessage9")
 	mid := strconv.Itoa(int(id))
 
 	var checkmess string
