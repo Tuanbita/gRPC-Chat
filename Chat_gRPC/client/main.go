@@ -16,7 +16,7 @@ import (
 	"syscall"
 )
 const (
-	address = "139.59.23.225:8000"
+	address = "127.0.0.1:8000"
 )
 
 var sessionkey string
@@ -307,9 +307,6 @@ func main() {
 		keyboad, _ := reader.ReadString('\n')
 		keyboad = strings.TrimSpace(keyboad)
 		//test session by run ^C = disconect to server
-		go func() {
-			show = controlExit()
-		}()
 		switch keyboad {
 		case "1":
 			login(c)

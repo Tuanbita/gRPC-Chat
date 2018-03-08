@@ -15,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Chat_gRPC/server/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9264">
-              <caret line="619" column="38" lean-forward="false" selection-start-line="619" selection-start-column="38" selection-end-line="619" selection-end-column="38" />
+            <state relative-caret-position="162">
+              <caret line="279" column="74" lean-forward="false" selection-start-line="279" selection-start-column="74" selection-end-line="279" selection-end-column="74" />
               <folding>
                 <element signature="e#14#361#0" expanded="true" />
               </folding>
@@ -31,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/Chat_gRPC/server/pooldb.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="88" column="38" lean-forward="false" selection-start-line="88" selection-start-column="38" selection-end-line="88" selection-end-column="38" />
+              <caret line="88" column="42" lean-forward="false" selection-start-line="88" selection-start-column="42" selection-end-line="88" selection-end-column="42" />
               <folding>
                 <element signature="e#14#305#0" expanded="true" />
               </folding>
@@ -42,8 +42,8 @@
       <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Chat_gRPC/client/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+            <state relative-caret-position="122">
+              <caret line="143" column="30" lean-forward="false" selection-start-line="143" selection-start-column="30" selection-end-line="143" selection-end-column="30" />
               <folding>
                 <element signature="e#14#232#0" expanded="true" />
               </folding>
@@ -51,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="menu.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Chat_gRPC/client/menu.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+              <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
               <folding>
                 <element signature="e#14#26#0" expanded="true" />
               </folding>
@@ -67,11 +67,13 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>CreateGenerator</find>
       <find>127.0.0.1</find>
+      <find>139.59.23.225</find>
+      <find>CreateGenerator</find>
     </findStrings>
     <replaceStrings>
       <replace>139.59.23.225</replace>
+      <replace>127.0.0.1</replace>
     </replaceStrings>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
@@ -81,9 +83,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Chat_gRPC/server/main.go" />
         <option value="$PROJECT_DIR$/Chat_gRPC/server/pooldb.go" />
         <option value="$PROJECT_DIR$/Chat_gRPC/client/main.go" />
+        <option value="$PROJECT_DIR$/Chat_gRPC/server/main.go" />
       </list>
     </option>
   </component>
@@ -263,12 +265,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Chat_gRPC/server/main.go">
+    <entry file="file://$PROJECT_DIR$/Chat_gRPC/client/menu.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9264">
-          <caret line="619" column="38" lean-forward="false" selection-start-line="619" selection-start-column="38" selection-end-line="619" selection-end-column="38" />
+        <state relative-caret-position="187">
+          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
           <folding>
-            <element signature="e#14#361#0" expanded="true" />
+            <element signature="e#14#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -276,7 +278,7 @@
     <entry file="file://$PROJECT_DIR$/Chat_gRPC/server/pooldb.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="88" column="38" lean-forward="false" selection-start-line="88" selection-start-column="38" selection-end-line="88" selection-end-column="38" />
+          <caret line="88" column="42" lean-forward="false" selection-start-line="88" selection-start-column="42" selection-end-line="88" selection-end-column="42" />
           <folding>
             <element signature="e#14#305#0" expanded="true" />
           </folding>
@@ -285,20 +287,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Chat_gRPC/client/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+        <state relative-caret-position="122">
+          <caret line="143" column="30" lean-forward="false" selection-start-line="143" selection-start-column="30" selection-end-line="143" selection-end-column="30" />
           <folding>
             <element signature="e#14#232#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Chat_gRPC/client/menu.go">
+    <entry file="file://$PROJECT_DIR$/Chat_gRPC/server/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        <state relative-caret-position="162">
+          <caret line="279" column="74" lean-forward="false" selection-start-line="279" selection-start-column="74" selection-end-line="279" selection-end-column="74" />
           <folding>
-            <element signature="e#14#26#0" expanded="true" />
+            <element signature="e#14#361#0" expanded="true" />
           </folding>
         </state>
       </provider>

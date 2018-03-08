@@ -86,7 +86,7 @@ func IdClientCreator(host, port string, connTimeout time.Duration, forPool* thri
 var (mpid=thriftpool.NewMapPool(100, 3600, 3600, IdClientCreator, close))
 
 func getvalue(t string) int64{
-	idclient, _ := mpid.Get("139.59.23.225", "18405").Get()
+	idclient, _ := mpid.Get("127.0.0.1", "18405").Get()
 	defer idclient.BackToPool()
 	id, _ := idclient.Client.(*idbs.TGeneratorClient).GetValue(t)
 	return id
