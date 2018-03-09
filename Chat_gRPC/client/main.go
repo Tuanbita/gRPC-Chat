@@ -165,6 +165,7 @@ func login(c pb.ChatgRPCClient) {
 		if check == false {
 			fmt.Println("UserName hoac password nhap khong dung")
 			fmt.Println(login.Response)
+			return
 		} else {
 			//change session first
 			sessionkey = login.GetResponse()
@@ -183,7 +184,8 @@ func login(c pb.ChatgRPCClient) {
 				case "2":
 					createGroup(c)
 				case "4":
-					show = logout(c)
+					logout(c)
+					return
 				case "5":
 					getListUser(c)
 				}
