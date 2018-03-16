@@ -15,6 +15,7 @@ import (
 	"os/signal"
 	"syscall"
 )
+
 const (
 	address = "127.0.0.1:8000"
 )
@@ -25,7 +26,7 @@ func chat(c pb.ChatgRPCClient, idreceiver string, idconversation string) bool{
 
 	reader := bufio.NewReader(os.Stdin)
 	stream,_ := c.RouteChat(context.Background())
-	stream.Send(&pb.Message{Sessionkey:sessionkey, Content:"hellooooooooooooooooooo", ToUid: idreceiver, Cid:idconversation})
+	stream.Send(&pb.Message{Sessionkey:sessionkey, Content:"hello", ToUid: idreceiver, Cid:idconversation})
 
 	mailBox := make(chan pb.Message, 100)
 	go receiveMessages(stream, mailBox)
@@ -122,7 +123,7 @@ func singeChat(c pb.ChatgRPCClient){
 }
 
 func loadMessage(c pb.ChatgRPCClient){
-	fmt.Println("tin nhan chua duoc doc")
+	//fmt.Println("tin nhan chua duoc doc")
 	var request pb.Request
 	request.Sessionkey = sessionkey
 	lstmess,err:=c.LoadMess(context.Background(),&request)
@@ -136,6 +137,26 @@ func loadMessage(c pb.ChatgRPCClient){
 	}
 }
 
+func loadAllMessage(c pb.ChatgRPCClient){
+
+	fmt.Print("Nhap Cid: ")
+	cid := bufio.NewReader(os.Stdin)
+	Cid,_ := cid.ReadString('\n')
+	Cid = strings.TrimSpace(Cid)
+	var request pb.Request
+	request.Sessionkey = sessionkey
+	request.Request = Cid
+
+	lstmess,err:=c.LoadAllMess(context.Background(),&request)
+
+	if err != nil {
+		log.Fatal("ListUser stream error: ", err)
+		return
+	}
+	for i:=0;i<len(lstmess.GetAllmess());i++{
+		fmt.Println(lstmess.GetAllmess()[i].GetFromName()," >> ",lstmess.GetAllmess()[i].GetContent())
+	}
+}
 func logout(c pb.ChatgRPCClient) bool{
 	//truyen vao sessionkey
 	var req pb.Request
@@ -165,11 +186,10 @@ func login(c pb.ChatgRPCClient) {
 		if check == false {
 			fmt.Println("UserName hoac password nhap khong dung")
 			fmt.Println(login.Response)
-			return
 		} else {
 			//change session first
 			sessionkey = login.GetResponse()
-			//fmt.Println("sessionkey: ",sessionkey)
+			fmt.Println("sessionkey: ",sessionkey)
 			//join chat
 			loadMessage(c)
 			show := true
@@ -188,6 +208,9 @@ func login(c pb.ChatgRPCClient) {
 					return
 				case "5":
 					getListUser(c)
+				case "7":
+					loadAllMessage(c)
+
 				}
 			}
 		}
@@ -286,7 +309,7 @@ func getListUser(c pb.ChatgRPCClient){
 		return
 	}
 	for i:=0;i<len(lstUser.GetAlluser());i++{
-		fmt.Println("Id: ",lstUser.GetAlluser()[i].GetUid()," >> ",lstUser.GetAlluser()[i].GetUsername())
+		fmt.Println("Id: ",lstUser.GetAlluser()[i].GetUid()," >> ",lstUser.GetAlluser()[i].GetUsername(), " Active: ", lstUser.GetAlluser()[i].GetActive())
 	}
 
 }
@@ -309,6 +332,7 @@ func main() {
 		keyboad, _ := reader.ReadString('\n')
 		keyboad = strings.TrimSpace(keyboad)
 		//test session by run ^C = disconect to server
+
 		switch keyboad {
 		case "1":
 			login(c)
