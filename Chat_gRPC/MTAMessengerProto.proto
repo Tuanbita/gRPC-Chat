@@ -1,5 +1,5 @@
 syntax = "proto3";
-
+package MTAMessenger;
 message Empty{
 }
 //login
@@ -39,6 +39,7 @@ message Message{
     bool check=6;
     string from_name =7;
     string toUid=8;
+
 }
 //tra ve cho client khi client chua co
 message Conversation{
