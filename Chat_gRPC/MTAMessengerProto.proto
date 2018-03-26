@@ -94,7 +94,7 @@ service ChatgRPC {
 //add n uid to conversation
     rpc AddUidToConversation(ConversationDetail) returns(Response){}
 //load tat ca tin nhan
-    rpc LoadAllMess(Request) returns (AllMessages){}
+    rpc LoadAllMessOnCid(Request) returns (AllMessages){}
 //ket ban
     rpc AddFriend(Request) returns (Response){}
 //lay danh sach tat ca user

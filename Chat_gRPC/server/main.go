@@ -15,6 +15,7 @@ import (
 	"sync"
 	"strconv"
 	//"github.com/constabulary/gb/testdata/src/a"
+	"strings"
 )
 
 const address  ="127.0.0.1:8000"
@@ -411,7 +412,8 @@ func (s *UserService)LoadMess(ctx context.Context, in *pb.Request)(*pb.WaittingM
 	} else {return &pb.WaittingMessage{Waittingmess:lstmess }, nil}
 }
 
-//tra ve tat ca cac tin nhan
+//tra ve tat ca cac tin nhan theo Cid
+/*
 func (s *UserService) LoadAllMess(ctx context.Context, in *pb.Request) (*pb.AllMessages, error){
 	client, _ := mp.Get("127.0.0.1", "18407").Get()
 	defer client.BackToPool()
@@ -453,6 +455,44 @@ func (s *UserService) LoadAllMess(ctx context.Context, in *pb.Request) (*pb.AllM
 		return &pb.AllMessages{Allmess:lstmess}, nil
 	} else {return &pb.AllMessages{Allmess:lstmess }, nil}
 
+}
+*/
+func (s *UserService) LoadAllMessOnCid(ctx context.Context, in *pb.Request) (*pb.AllMessages, error) {
+	client, _ := mp.Get("127.0.0.1", "18407").Get()
+	defer client.BackToPool()
+	uid, _ := checkSessionKey(in.GetSessionkey())
+	//count, _ := client.Client.(*bs.TStringBigSetKVServiceClient).GetTotalCount("Content")
+
+	mess := []pb.Message{}
+	var m pb.Message
+	lstmess := []*pb.Message{}
+
+	cidRequest := in.GetRequest()
+	if uid != 0 {
+		//Mess,_ := client.Client.(*bs.TStringBigSetKVServiceClient).BsGetSlice("Content",0, int32(count))
+		dem := 0
+		checkCidRequest, _ := client.Client.(*bs.TStringBigSetKVServiceClient).BsExisted("Cid", []byte(cidRequest))
+		if checkCidRequest.GetExisted() {
+			str, _ := client.Client.(*bs.TStringBigSetKVServiceClient).BsGetItem("Cid-nMessId", []byte(cidRequest))
+			//s := string(str.Item.Value[:])
+			s := strings.Split(string(str.Item.Value[:]), " ")
+			for _, mid := range s {
+				content, _ := client.Client.(*bs.TStringBigSetKVServiceClient).BsGetItem("Content", []byte(mid))
+				m.Content = string(content.Item.Value[:])
+				//lay time
+				createdtime, _ := client.Client.(*bs.TStringBigSetKVServiceClient).BsGetItem("MessCreatedTime", []byte(mid))
+				m.CreatedTime = string(createdtime.Item.Value[:])
+				//lay fromname
+				fromname, _ := client.Client.(*bs.TStringBigSetKVServiceClient).BsGetItem("FromName", []byte(mid))
+				m.FromName = string(fromname.Item.Value[:])
+
+				mess = append(mess, m)
+				lstmess = append(lstmess, &mess[dem])
+				dem ++
+			}
+		}
+		return &pb.AllMessages{Allmess:lstmess}, nil
+	} else {return &pb.AllMessages{Allmess:lstmess }, nil}
 }
 //add friend, truyen vao 1 sessionkey, uid_B
 func (s *UserService) AddFriend(ctx context.Context, in *pb.Request) ( *pb.Response, error) {
@@ -533,7 +573,6 @@ func saveMessage(mess pb.Message){
 	idclient.Client.(*idbs.TGeneratorClient).CreateGenerator("GenIdMessage")
 	id := getValue("GenIdMessage")
 	mid := strconv.Itoa(int(id))
-
 	var checkmess string
 //check xem tin nhan da duoc gui thanh cong hay chua
 	if mess.Check{
@@ -557,6 +596,18 @@ func saveMessage(mess pb.Message){
 	fmt.Print("Cid: ",string(mess.Cid))
 	count,_ := client.Client.(*bs.TStringBigSetKVServiceClient).GetTotalCount("Content")
 	fmt.Println(" content:= ",string(b),"   messId := ", mid, "  count: ", count, "toid: ", mess.ToUid, "check: ", checkmess	)
+
+	check,_ := client.Client.(*bs.TStringBigSetKVServiceClient).BsExisted("Cid-nMessId", []byte(mess.GetCid()))
+	if check.GetExisted(){
+		str,_:= client.Client.(*bs.TStringBigSetKVServiceClient).BsGetItem("Cid-nMessId", []byte(mess.GetCid()))
+		s := string(str.Item.Value[:])
+		s = s + " " + mid
+		fmt.Println(s)
+		client.Client.(*bs.TStringBigSetKVServiceClient).BsRemoveItem("Cid-nMessId", []byte(mess.GetCid()))
+		client.Client.(*bs.TStringBigSetKVServiceClient).BsPutItem("Cid-nMessId", &bs.TItem{[]byte(mess.GetCid()),[]byte(s)})
+	} else {
+		client.Client.(*bs.TStringBigSetKVServiceClient).BsPutItem("Cid-nMessId", &bs.TItem{[]byte(mess.GetCid()), []byte(mid)})
+	}
 }
 
 //check xem User co ton tai ko

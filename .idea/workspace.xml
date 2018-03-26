@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5ba1337d-8acf-461a-ae60-9c8a238038b6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Chat_gRPC/proto.pb.go" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Chat_gRPC/proto.proto" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Chat_gRPC/run-database/bisget/BigSetIDGen.data" afterPath="$PROJECT_DIR$/Chat_gRPC/run-database/bisget/BigSetIDGen.data" />
+      <change beforePath="$PROJECT_DIR$/Chat_gRPC/MTAMessengerProto.pb.go" afterPath="$PROJECT_DIR$/Chat_gRPC/MTAMessengerProto.pb.go" />
+      <change beforePath="$PROJECT_DIR$/Chat_gRPC/MTAMessengerProto.proto" afterPath="$PROJECT_DIR$/Chat_gRPC/MTAMessengerProto.proto" />
       <change beforePath="$PROJECT_DIR$/Chat_gRPC/server/main.go" afterPath="$PROJECT_DIR$/Chat_gRPC/server/main.go" />
-      <change beforePath="$PROJECT_DIR$/Chat_gRPC/server/pooldb.go" afterPath="$PROJECT_DIR$/Chat_gRPC/server/pooldb.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,10 +19,11 @@
       <file leaf-file-name="main.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Chat_gRPC/server/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="762" column="5" lean-forward="false" selection-start-line="762" selection-start-column="4" selection-end-line="762" selection-end-column="5" />
+            <state relative-caret-position="-52">
+              <caret line="456" column="0" lean-forward="true" selection-start-line="456" selection-start-column="0" selection-end-line="456" selection-end-column="0" />
               <folding>
-                <element signature="e#14#408#0" expanded="true" />
+                <element signature="e#14#419#0" expanded="true" />
+                <element signature="n#!!block;n#LoadMess#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -33,7 +32,7 @@
       <file leaf-file-name="tstringbigsetkvservice.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Chat_gRPC/thrift/gen-go/generic/tstringbigsetkvservice.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
+            <state relative-caret-position="1241">
               <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
               <folding />
             </state>
@@ -43,7 +42,7 @@
       <file leaf-file-name="ttypes.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Chat_gRPC/thrift/gen-go/generic/ttypes.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
+            <state relative-caret-position="1870">
               <caret line="114" column="14" lean-forward="false" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="14" />
               <folding />
             </state>
@@ -53,8 +52,8 @@
       <file leaf-file-name="MTAMessengerProto.proto" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Chat_gRPC/MTAMessengerProto.proto">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-544">
-              <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+            <state relative-caret-position="204">
+              <caret line="96" column="24" lean-forward="false" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -73,7 +72,7 @@
       <file leaf-file-name="pooldb.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Chat_gRPC/server/pooldb.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
+            <state relative-caret-position="1445">
               <caret line="94" column="16" lean-forward="false" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="16" />
               <folding>
                 <element signature="e#14#305#0" expanded="true" />
@@ -85,8 +84,8 @@
       <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Chat_gRPC/client/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-86">
-              <caret line="255" column="31" lean-forward="false" selection-start-line="255" selection-start-column="31" selection-end-line="255" selection-end-column="31" />
+            <state relative-caret-position="105">
+              <caret line="141" column="27" lean-forward="true" selection-start-line="141" selection-start-column="27" selection-end-line="141" selection-end-column="27" />
               <folding>
                 <element signature="e#14#232#0" expanded="true" />
               </folding>
@@ -97,8 +96,8 @@
       <file leaf-file-name="menu.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Chat_gRPC/client/menu.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+            <state relative-caret-position="306">
+              <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -114,7 +113,6 @@
       <find>uid</find>
       <find>delete</find>
       <find>fromid</find>
-      <find>string(</find>
       <find>getCu</find>
       <find>for</find>
       <find>CreateGenerator</find>
@@ -133,10 +131,13 @@
       <find>SetData</find>
       <find>Password</find>
       <find>UserName</find>
+      <find>string(</find>
+      <find>for</find>
     </findStrings>
     <replaceStrings>
       <replace>139.59.23.225</replace>
       <replace>127.0.0.1</replace>
+      <replace>Cid-nMessId</replace>
     </replaceStrings>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
@@ -149,8 +150,8 @@
         <option value="$PROJECT_DIR$/Chat_gRPC/client/menu.go" />
         <option value="$PROJECT_DIR$/Chat_gRPC/server/pooldb.go" />
         <option value="$PROJECT_DIR$/Chat_gRPC/client/main.go" />
-        <option value="$PROJECT_DIR$/Chat_gRPC/MTAMessengerProto.proto" />
         <option value="$PROJECT_DIR$/Chat_gRPC/server/main.go" />
+        <option value="$PROJECT_DIR$/Chat_gRPC/MTAMessengerProto.proto" />
       </list>
     </option>
   </component>
@@ -180,7 +181,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -216,6 +216,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -241,18 +242,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="702" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14621212" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7688266" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17045455" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924694" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17272727" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32924694" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32924694" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -333,7 +333,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#14#408#0" expanded="true" />
+            <element signature="e#14#419#0" expanded="true" />
+            <element signature="n#!!block;n#LoadMess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -382,7 +383,8 @@
         <state relative-caret-position="2329">
           <caret line="151" column="55" lean-forward="true" selection-start-line="151" selection-start-column="55" selection-end-line="151" selection-end-column="55" />
           <folding>
-            <element signature="e#14#408#0" expanded="true" />
+            <element signature="e#14#419#0" expanded="true" />
+            <element signature="n#!!block;n#LoadMess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -410,7 +412,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#14#408#0" expanded="true" />
+            <element signature="e#14#419#0" expanded="true" />
+            <element signature="n#!!block;n#LoadMess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -448,7 +451,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#14#408#0" expanded="true" />
+            <element signature="e#14#419#0" expanded="true" />
+            <element signature="n#!!block;n#LoadMess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -496,7 +500,8 @@
         <state relative-caret-position="6953">
           <caret line="423" column="0" lean-forward="true" selection-start-line="423" selection-start-column="0" selection-end-line="423" selection-end-column="0" />
           <folding>
-            <element signature="e#14#408#0" expanded="true" />
+            <element signature="e#14#419#0" expanded="true" />
+            <element signature="n#!!block;n#LoadMess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -524,7 +529,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#14#408#0" expanded="true" />
+            <element signature="e#14#419#0" expanded="true" />
+            <element signature="n#!!block;n#LoadMess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -562,7 +568,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#14#408#0" expanded="true" />
+            <element signature="e#14#419#0" expanded="true" />
+            <element signature="n#!!block;n#LoadMess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -600,7 +607,8 @@
         <state relative-caret-position="1224">
           <caret line="86" column="28" lean-forward="true" selection-start-line="86" selection-start-column="28" selection-end-line="86" selection-end-column="28" />
           <folding>
-            <element signature="e#14#408#0" expanded="true" />
+            <element signature="e#14#419#0" expanded="true" />
+            <element signature="n#!!block;n#LoadMess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -637,7 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="48" column="35" lean-forward="false" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -650,17 +657,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Chat_gRPC/client/menu.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Chat_gRPC/server/pooldb.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
+        <state relative-caret-position="1445">
           <caret line="94" column="16" lean-forward="false" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="16" />
           <folding>
             <element signature="e#14#305#0" expanded="true" />
@@ -672,7 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-201">
           <caret line="153" column="1" lean-forward="true" selection-start-line="153" selection-start-column="1" selection-end-line="153" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -684,35 +682,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Chat_gRPC/client/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-86">
-          <caret line="255" column="31" lean-forward="false" selection-start-line="255" selection-start-column="31" selection-end-line="255" selection-end-column="31" />
-          <folding>
-            <element signature="e#14#232#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/go/src/builtin/builtin.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="87" column="14" lean-forward="false" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Chat_gRPC/MTAMessengerProto.proto">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Chat_gRPC/thrift/gen-go/generic/tstringbigsetkvservice.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
+        <state relative-caret-position="1241">
           <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
           <folding />
         </state>
@@ -720,18 +699,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Chat_gRPC/thrift/gen-go/generic/ttypes.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="1870">
           <caret line="114" column="14" lean-forward="false" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Chat_gRPC/client/menu.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Chat_gRPC/client/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="141" column="27" lean-forward="true" selection-start-line="141" selection-start-column="27" selection-end-line="141" selection-end-column="27" />
+          <folding>
+            <element signature="e#14#232#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Chat_gRPC/MTAMessengerProto.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="96" column="24" lean-forward="false" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Chat_gRPC/server/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="762" column="5" lean-forward="false" selection-start-line="762" selection-start-column="4" selection-end-line="762" selection-end-column="5" />
+        <state relative-caret-position="-52">
+          <caret line="456" column="0" lean-forward="true" selection-start-line="456" selection-start-column="0" selection-end-line="456" selection-end-column="0" />
           <folding>
-            <element signature="e#14#408#0" expanded="true" />
+            <element signature="e#14#419#0" expanded="true" />
+            <element signature="n#!!block;n#LoadMess#0" expanded="false" />
           </folding>
         </state>
       </provider>
