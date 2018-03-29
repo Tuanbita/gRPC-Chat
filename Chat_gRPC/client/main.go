@@ -117,16 +117,16 @@ func singeChat(c pb.ChatgRPCClient){
 			chat(c, to_id.GetId(), cid.GetId())
 		} else {
 			fmt.Println("hien tai khong online, hay de lai loi nhan")
-			chatRieng(c, to_id.GetId(), cid.GetId())
+			chatRieng(c,to_id.GetId(), cid.GetId())
 		}
 	}else {fmt.Println("ten khong ton tai")}
 }
 
-func loadMessage(c pb.ChatgRPCClient){
+func runLoadWaittingMess(c pb.ChatgRPCClient){
 	//fmt.Println("tin nhan chua duoc doc")
 	var request pb.Request
 	request.Sessionkey = sessionkey
-	lstmess,err:=c.LoadMess(context.Background(),&request)
+	lstmess,err:=c.LoadWaittingMess(context.Background(),&request)
 
 	if err != nil {
 		//log.Fatal("ListUser stream error: ", err)
@@ -137,7 +137,7 @@ func loadMessage(c pb.ChatgRPCClient){
 	}
 }
 
-func loadAllMessage(c pb.ChatgRPCClient){
+func runLoadAllMessOnCid(c pb.ChatgRPCClient){
 
 	fmt.Print("Nhap Cid: ")
 	cid := bufio.NewReader(os.Stdin)
@@ -147,7 +147,7 @@ func loadAllMessage(c pb.ChatgRPCClient){
 	request.Sessionkey = sessionkey
 	request.Request = Cid
 
-	lstmess,err:=c.LoadAllMess(context.Background(),&request)
+	lstmess,err:=c.LoadAllMessOnCid(context.Background(),&request)
 
 	if err != nil {
 		log.Fatal("ListUser stream error: ", err)
@@ -157,7 +157,7 @@ func loadAllMessage(c pb.ChatgRPCClient){
 		fmt.Println(lstmess.GetAllmess()[i].GetFromName()," >> ",lstmess.GetAllmess()[i].GetContent())
 	}
 }
-func logout(c pb.ChatgRPCClient) bool{
+func runLogout(c pb.ChatgRPCClient) bool{
 	//truyen vao sessionkey
 	var req pb.Request
 	req.Sessionkey = sessionkey
@@ -166,7 +166,7 @@ func logout(c pb.ChatgRPCClient) bool{
 	return false
 }
 
-func login(c pb.ChatgRPCClient) {
+func runLogin(c pb.ChatgRPCClient) {
 
 	var UserName pb.UserLogin
 	for {
@@ -191,7 +191,7 @@ func login(c pb.ChatgRPCClient) {
 			sessionkey = login.GetResponse()
 			fmt.Println("sessionkey: ",sessionkey)
 			//join chat
-			loadMessage(c)
+			runLoadWaittingMess(c)
 			show := true
 			for show{
 				TopMenuChat()
@@ -204,12 +204,12 @@ func login(c pb.ChatgRPCClient) {
 				case "2":
 					createGroup(c)
 				case "4":
-					logout(c)
+					runLogout(c)
 					return
 				case "5":
-					getListUser(c)
+					runGetListUser(c)
 				case "7":
-					loadAllMessage(c)
+					runLoadAllMessOnCid(c)
 
 				}
 			}
@@ -228,7 +228,7 @@ func controlExit() bool {
 	}
 }
 
-func register(c pb.ChatgRPCClient){
+func runRegister(c pb.ChatgRPCClient){
 
 	var InfoUser pb.User
 	fmt.Print("Nhap UserName: ")
@@ -275,7 +275,11 @@ func listenToClient(sendQ chan pb.Message, reader *bufio.Reader, idreceiver stri
 
 func receiveMessages(stream pb.ChatgRPC_RouteChatClient, mailbox chan pb.Message) {
 	for {
-		msg, _ := stream.Recv()
+		msg, err := stream.Recv()
+		if err !=nil{
+			fmt.Println(err)
+			return
+		}
 		mailbox <- *msg
 	}
 }
@@ -298,7 +302,7 @@ func createGroup(c pb.ChatgRPCClient){
 	}
 
 }
-func getListUser(c pb.ChatgRPCClient){
+func runGetListUser(c pb.ChatgRPCClient){
 
 	var request pb.Request
 	request.Sessionkey = sessionkey
@@ -335,9 +339,9 @@ func main() {
 
 		switch keyboad {
 		case "1":
-			login(c)
+			runLogin(c)
 		case "2":
-			register(c)
+			runRegister(c)
 		}
 	}
 }
